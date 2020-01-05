@@ -1,0 +1,39 @@
+<kendo-chart [categoryAxis]="{ categories: categories }">
+
+    <kendo-chart-tooltip>
+        <ng-template *ngIf="dataType === 'tickets'" kendoChartSeriesTooltipTemplate let-value="value">
+            {{ value | number : '1.0-2'}}
+        </ng-template>
+        <ng-template *ngIf="dataType === 'money'" kendoChartSeriesTooltipTemplate let-value="value">
+            {{ value | currency:'$' }}
+        </ng-template>
+      </kendo-chart-tooltip>
+
+      <kendo-chart-axis-defaults>
+
+          <kendo-chart-value-axis>
+              <kendo-chart-value-axis-item>
+                  <kendo-chart-value-axis-item-labels *ngIf="dataType === 'tickets'" [content]="labelContent"></kendo-chart-value-axis-item-labels>
+                  <kendo-chart-value-axis-item-labels *ngIf="dataType === 'money'" [content]="labelContentMoney"></kendo-chart-value-axis-item-labels>
+              </kendo-chart-value-axis-item>
+          </kendo-chart-value-axis>
+          <!-- <kendo-chart-axis-defaults-labels *ngIf="dataType === 'money'" format="c0">
+          </kendo-chart-axis-defaults-labels> d d
+
+          <kendo-chart-axis-defaults-labels *ngIf="dataType === 'tickets'" format="0">
+            </kendo-chart-axis-defaults-labels> -->
+
+
+
+        </kendo-chart-axis-defaults>
+  <kendo-chart-area [height]="usedHeight" ></kendo-chart-area>
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+
+  <kendo-chart-series>
+      <kendo-chart-series-item *ngFor="let item of series"
+          [type]="chartType" style="smooth" [data]="item.data" [name]="item.name" [color]="getColor(item.name)" >
+          <!-- <kendo-chart-series-item-labels [content]="labelContent">
+            </kendo-chart-series-item-labels> -->
+      </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

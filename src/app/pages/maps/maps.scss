@@ -1,0 +1,179 @@
+.map-control-container {
+  position: absolute;
+  padding: 20px;
+  top: 60px;
+  right: 11px;
+  height: 75px;
+  width: 170px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 2px;
+}
+
+.map-dashboard-values {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.heatmap-legend-container {
+  position: absolute;
+  padding: 20px;
+  top: 450px;
+  right: 11px;
+  height: 300px;
+  width: 170px;
+  background-color: rgba(255, 255, 255, 0.968);
+  border-radius: 2px;
+}
+
+.slider {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+}
+
+.map-options-container {
+  position: absolute;
+  padding: 14px;
+  top: 60px;
+  right: 190px;
+  height: 76px;
+  width: 170px;
+  background-color: rgba(255, 255, 255, 0.968);
+  border-radius: 2px;
+}
+
+.heatmap-legend {
+  margin-top: -20px;
+  margin-left: -20px;
+  border: 1px solid rgba(36, 36, 36, 0.612);
+}
+
+.dialog-container {
+  margin-top: 30px;
+  height: 200px;
+  width: 100%;
+}
+
+.dialog-bottom {
+  padding-top: 20px;
+}
+
+.search-control-container {
+  position: absolute;
+  padding: 20px;
+  top: 145px;
+  right: 0px;
+  /* left: 80px; */
+  right: 10px;
+  /* bottom: 0px; */
+  height: 200px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.968);
+  border-radius: 2px;
+}
+
+.play-button-container {
+  position: absolute;
+  padding: 20px;
+  top: 349px;
+  right: 0px;
+  right: 10px;
+  height: 89px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.968);
+  border-radius: 2px;
+}
+
+.dashboard-control-container {
+  position: absolute;
+  padding: 20px;
+  top: 140px;
+  right: 11px;
+  height: 300px;
+  width: 170px;
+  background-color: rgba(255, 255, 255, 0.886);
+  border-radius: 2px;
+}
+
+.slide-in-one {
+  animation: 0.50s ease-out 0s 1 slideInFromLeft;
+}
+.slide-in-two {
+  animation: 0.70s ease-out 0s 1 slideInFromLeft;
+}
+.slide-in-three {
+  animation: 0.90s ease-out 0s 1 slideInFromLeft;
+}
+.slide-in-four {
+  animation: 1.10s ease-out 0s 1 slideInFromLeft;
+}
+.slide-in-five {
+  animation: 1.40s ease-out 0s 1 slideInFromLeft;
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-150%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.box1 {  background-color: #27ae5f }
+.box2 {  background-color: #e67d22 }
+.box3 {  background-color: #8d44ad }
+.box4 {  background-color: #297fb9 }
+.box5 {  background-color: #e74d3c }
+.box6 {  background-color: #eb9345 }
+
+// iPad Screen sizes
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  .map-control-container {
+    width: 84px;
+  }
+  .search-control-container {
+    position: absolute;
+    padding: 20px;
+    top: 60px;
+    right: 100px;
+    height: 75px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.968);
+    border-radius: 2px;
+  }
+  .map-dashboard-values {
+    font-size: 18px !important;
+    color: white !important;
+  }
+}
+
+// @media only screen
+// and (min-device-width : 375px)
+// and (max-device-width : 812px) {
+//   .map-control-container {
+//     display: none;
+//   }
+//   .search-control-container {
+//     display: none;
+//   }
+//   .map-dashboard-values {
+//     font-size: 18px !important;
+//     color: white !important;
+//   }
+//   .map-dashboard {
+//     display: none;
+//   }
+
+// }
+
+
+
+

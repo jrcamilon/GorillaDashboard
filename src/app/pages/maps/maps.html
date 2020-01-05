@@ -1,0 +1,100 @@
+<div>
+    <div class="map">
+      <agm-map
+      (mapReady)="onMapReady($event)"
+      [zoom]="14"
+      [streetViewControl]="false"
+      [longitude]="markers[0].lng"
+      [latitude]="markers[0].lat"
+      [styles]="mapStyles" class="height-full width-full"
+      [mapTypeControl]='true'>
+        <span *ngIf="isMarkersVisible">
+          <agm-marker
+          *ngFor="let marker of cameraData; let i = index"
+          [latitude]="marker.lat"
+          [longitude]="marker.lng"
+          [iconUrl]="markerIconUrl(marker)"
+          ></agm-marker>
+
+          <!-- <agm-marker
+          [latitude]="lat"
+          [longitude]="lng"
+          ></agm-marker> -->
+
+        </span>
+      </agm-map>
+    </div>
+
+    <div class="map-control-container" (click)="onOptionsClick()" >
+      <i class="fas fa-map fa-3x"></i>
+    </div>
+
+    <div class="map-options-container" *ngIf="toggle">
+      <mat-slide-toggle (change)="onTrafficCamClick('boundary')" [checked]="isBoundaryOverlay"><p style="color: black; padding-top: 16px;">BOUNDARY</p></mat-slide-toggle>
+      <!-- <mat-slide-toggle color="warn" (change)="onTrafficCamClick('markers')" [checked]="isMarkersVisible"><p style="color: black; padding-top: 16px;">MARKERS</p></mat-slide-toggle> -->
+    </div>
+
+    <div class="heatmap-legend-container" *ngIf="isHeatmapRevenueOverlay">
+        <img class="heatmap-legend" src="assets/img/heatmap_legend.svg"/>
+        <ul style="padding-left: 40px;">
+
+        </ul>
+    </div>
+
+    <div style="position: absolute; left: 80px; top: 120px;">
+      <h3>{{displayStartDate}} - {{displayEndDate}}</h3>
+      <ul style="padding-left: 0;">
+        <li *ngFor="let a of area"><h3>{{a}}</h3></li>
+      </ul>
+      <ul>
+        <li *ngFor="let item of "></li>
+      </ul>
+    </div>
+
+
+    <div class="search-control-container">
+
+         <div>
+            <div class="row">
+              <div class="col-md-3" style="padding-top: 8px;"><p>Groups:</p></div>
+              <div class="col-md-9" style="float: left;"><kendo-multiselect [data]="listItems" (valueChange)="onGroupsValueChange($event)"></kendo-multiselect></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3" style="padding-top: 8px;"><p>Label:</p></div>
+              <div class="col-md-9" style="float: left;"><kendo-dropdownlist [data]="listLabels" (valueChange)="onLabelValueChange($event)"></kendo-dropdownlist></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3" style="padding-top: 8px;"><p>Start:</p></div>
+              <div class="col-md-9" style="float: left;"><kendo-datepicker [(value)]="selectedStartDate" (valueChange)="onStartDateChange($event)"></kendo-datepicker></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3" style="padding-top: 8px;"><p>End:</p></div>
+              <div class="col-md-9" style="float: left;"><kendo-datepicker [(value)]="selectedEndDate" (valueChange)="onEndDateChange($event)"></kendo-datepicker></div>
+            </div>
+         </div>
+         <!-- <div style="margin-top: 10px;">
+          <kendo-slider
+          [fixedTickWidth]="10"
+          [min]="min"
+          [max]="max"
+          [smallStep]="smallStep"
+          [(ngModel)] = "valueHorizontal"
+          [showButtons]="false"
+          ></kendo-slider>
+         </div>
+         <div style="margin-top: 10px">
+            <button style="width: 100%" type="button" class="btn btn-secondary" (click)="onPlayPressed($event)">{{playButtonState ? 'STOP' : 'PLAY'}}</button>
+         </div> -->
+    </div>
+
+    <div class="play-button-container">
+      <div style="margin-top: 10px">
+         <button style="width: 100%" type="button" class="btn btn-secondary" (click)="onPlayButtonPressed($event)">{{playButtonState ? 'STOP' : 'PLAY'}}</button>
+      </div>
+    </div>
+
+    <div class="slider">
+      <app-slider *ngIf="sliderData.length !== 0" [data]="sliderData" (sliderChange)="onSliderChange($event)"></app-slider>
+    </div>
+
+</div>

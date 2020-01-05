@@ -1,0 +1,53 @@
+<kendo-grid
+    #grid="kendoGrid"
+    [kendoGridBinding]="data"
+    [pageSize]="10"
+    [pageable]="true"
+    [sortable]="true"
+    [filterable]="true"
+    [height]="440"
+    [columnMenu]="true"
+    [kendoGridSelectBy]="'site_id'"
+    [selectedKeys]="mySelection"
+    (filterChange)="onFilterChange($event)"
+    (selectedKeysChange)="onSelectedKeysChange($event)"
+    [selectable]="{enabled: true, checkboxOnly: true }"
+    >
+        <kendo-grid-column field="site_id" title="Site ID" width="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="direction_short" title="Direction" width="120">
+        </kendo-grid-column>
+        <kendo-grid-column field="issued" title="Issued" width="110">
+        </kendo-grid-column>
+        <kendo-grid-column field="paid" title="Paid" width="110">
+        </kendo-grid-column>
+        <kendo-grid-column field="collection_rate" title="Collection Rate" format="{0:p2}" width="150">
+        </kendo-grid-column>
+        <kendo-grid-column  field="ats_fees" title="ATS Fees"  format="{0:c}" width="150">
+        </kendo-grid-column>
+        <kendo-grid-column  field="total_earnings" title="Earnings YTD"  format="{0:c}" width="150">
+        </kendo-grid-column>
+        <kendo-grid-column field="street_one" title="Street" width="150">
+        </kendo-grid-column>
+        <kendo-grid-column  field="street_two" title="Street" width="150">
+        </kendo-grid-column>
+        <!-- <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
+        </kendo-grid-column> -->
+        <!-- <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+            </ng-template>
+        </kendo-grid-column> -->
+
+        <!-- Controls -->
+        <kendo-grid-checkbox-column title="Map Options" >
+            <ng-template kendoGridHeaderTemplate>
+                <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox
+                        [state]="selectAllState"
+                        (selectAllChange)="onSelectAllChange($event)">
+                <label class="k-checkbox-label" for="selectAllCheckboxId"></label>
+            </ng-template>
+        </kendo-grid-checkbox-column>
+
+
+    </kendo-grid>
